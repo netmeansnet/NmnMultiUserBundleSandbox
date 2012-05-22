@@ -1,0 +1,31 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: Acme\UserBundle\Entity\User
+    service:
+        user_manager: nmn_user_manager
+    registration:
+        form:
+            handler: nmn_user_registration_form_handler
+        confirmation:
+            from_email:
+              address:        info@netmeans.net
+              sender_name:    nmnMultiUser
+            enabled:    true
+    profile:
+        form:
+            handler: nmn_user_profile_form_handler
+            
+parameters:    
+  nmn_user_discriminator_parameters:
+    classes:
+      UserOne:
+        entity: Acme\UserBundle\Entity\UserOne
+        registration: Acme\UserBundle\Form\Type\RegistrationUserOneFormType
+        profile: Acme\UserBundle\Form\Type\ProfileUserOneFormType
+        factory: 
+      UserTwo:
+        entity: Acme\UserBundle\Entity\UserTwo
+        registration: Acme\UserBundle\Form\Type\RegistrationUserTwoFormType
+        profile: Acme\UserBundle\Form\Type\ProfileUserTwoFormType
+        factory: 
