@@ -78,3 +78,4 @@
     git=http://github.com/doctrine/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
     version=origin/2.0
+    
