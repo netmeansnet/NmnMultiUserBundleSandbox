@@ -13,6 +13,6 @@ web_profiler:
 swiftmailer:
     disable_delivery: true
 
-fos_user:
-  resetting:
-        token_ttl: 0
+#fos_user:
+#  resetting:
+#        token_ttl: 0

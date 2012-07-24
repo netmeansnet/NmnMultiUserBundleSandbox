@@ -36,6 +36,17 @@ class SecurityControllerTest extends WebTestCase
         );
     } 
     
+    public function testUserLogout()
+    {
+        $this->testUserLogin('userone', 'userone', 'UserOne');
+        
+        $client  = static::createClient();
+        $crawler = $client->request('GET', '/logout');
+        
+        $session = $client->getContainer()->get("session");
+        $this->assertEquals(null, $session->get(UserDiscriminator::SESSION_NAME)); 
+    }
+    
     /**
      * @dataProvider userProvider
      */
